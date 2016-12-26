@@ -1,0 +1,82 @@
+package com.phd.rules;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RulesSet {
+	
+	/**
+	 * @param ruletype
+	 * @param ruleSetList
+	 */
+	public RulesSet(String ruletype, List<String> ruleSetList) {
+		super();
+		this.ruletype = ruletype;
+		RuleSetList = getRuleSetList(ruletype);
+	}
+	
+	public RulesSet(String ruletype) {
+		super();
+		this.ruletype = ruletype;
+		RuleSetList = getRuleSetList(ruletype);
+	}
+	
+	public String getRuletype() {
+		return ruletype;
+	}
+	public void setRuletype(String ruletype) {
+		this.ruletype = ruletype;
+	}
+	public List<String> getRuleSetList() {
+		return RuleSetList;
+	}
+	public void setRuleSetList(List<String> ruleSetList) {
+		RuleSetList = ruleSetList;
+	}
+	
+	private String ruletype;
+	private List<String> RuleSetList; 
+	
+	public List<String> getRuleSetList(String ruleType)
+	{
+		List<String> ruleSetList = new ArrayList<>();
+		switch (ruleType) {
+		case "PHIPA":
+			ruleSetList.add("PAN");
+			ruleSetList.add("fingerPrint");
+			ruleSetList.add("voicePattern");
+			ruleSetList.add("DOB");
+			ruleSetList.add("MedicalNo");
+			ruleSetList.add("HealthPlan");
+			ruleSetList.add("benefincaryNumber");
+			ruleSetList.add("medicalImage");
+			break;
+		case "SIPPA":
+			//ruleSetList.add("PAN");
+			ruleSetList.add("ADDHAR");
+			ruleSetList.add("bankAC");
+			ruleSetList.add("LOANID");
+			ruleSetList.add("religion");
+			ruleSetList.add("DOB");
+			ruleSetList.add("benefincaryNumber");
+			break;
+		case "EIPPA":
+			ruleSetList.add("PAN");
+			ruleSetList.add("PFAC");
+			ruleSetList.add("NPS");
+			ruleSetList.add("ADDHAR");
+			ruleSetList.add("bankAC");
+			ruleSetList.add("DOB");
+			ruleSetList.add("benefincaryNumber");
+			break;
+
+		default:
+			break;
+		}
+		return ruleSetList;
+		
+	}
+	
+	
+
+}
